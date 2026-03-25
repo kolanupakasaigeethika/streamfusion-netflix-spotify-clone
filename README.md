@@ -1,6 +1,6 @@
-# Netflix Clone
+# StreamFusion 🎬🎧
 
-A full-stack Netflix-style clone built with React + Vite + Tailwind CSS on the frontend and Django REST Framework + MongoEngine + MongoDB on the backend.
+A full-stack Netflix + Spotify-inspired streaming platform with video playback and a custom music engine built using React, Django, and MongoDB.
 
 ## Stack
 
