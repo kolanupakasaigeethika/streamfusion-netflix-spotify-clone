@@ -1,0 +1,254 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Poppins:wght@500;600;700;800&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+body {
+  @apply m-0 min-h-screen bg-netflix-black font-body text-white antialiased;
+  background-image:
+    radial-gradient(circle at top left, rgba(229, 9, 20, 0.22), transparent 28%),
+    radial-gradient(circle at top right, rgba(255, 255, 255, 0.05), transparent 22%),
+    linear-gradient(180deg, #11131a 0%, #09090d 35%, #050507 100%);
+}
+
+#root {
+  @apply min-h-screen;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #11131a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2a2a33;
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #3c3c48;
+}
+
+/* Custom slider styles */
+.slider::-webkit-slider-thumb {
+  appearance: none;
+  height: 12px;
+  width: 12px;
+  border-radius: 50%;
+  background: #fff;
+  cursor: pointer;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.3);
+}
+
+.slider::-webkit-slider-track {
+  height: 4px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 2px;
+}
+
+.slider::-webkit-slider-runnable-track {
+  height: 4px;
+  background: linear-gradient(90deg, #1db954, rgba(255, 255, 255, 0.2));
+  border-radius: 999px;
+}
+
+.slider::-moz-range-thumb {
+  height: 12px;
+  width: 12px;
+  border-radius: 50%;
+  background: #fff;
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.3);
+}
+
+.slider::-moz-range-track {
+  height: 4px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 2px;
+  border: none;
+}
+
+.music-progress__bar {
+  box-shadow: 0 0 16px rgba(29, 185, 84, 0.25);
+  transition: width 180ms linear;
+}
+
+.music-visualizer__bar {
+  width: 4px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, #86efac, #1db954);
+  opacity: 0.35;
+  transform-origin: bottom;
+  transform: scaleY(0.35);
+}
+
+.music-visualizer__bar--active {
+  opacity: 1;
+  animation: music-visualizer-bounce 0.95s ease-in-out infinite alternate;
+}
+
+@keyframes music-visualizer-bounce {
+  0% {
+    transform: scaleY(0.32);
+  }
+  100% {
+    transform: scaleY(1);
+  }
+}
+
+.netflix-intro__backdrop {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at center, rgba(229, 9, 20, 0.12), transparent 30%),
+    radial-gradient(circle at 50% 35%, rgba(255, 255, 255, 0.03), transparent 16%),
+    linear-gradient(180deg, rgba(0, 0, 0, 0.98), rgba(9, 2, 4, 0.98));
+  animation: netflix-intro-fade 2.5s ease forwards;
+}
+
+.netflix-intro__beam {
+  position: absolute;
+  top: -10%;
+  width: 24vw;
+  min-width: 180px;
+  height: 130vh;
+  opacity: 0;
+  filter: blur(22px);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.12), rgba(229, 9, 20, 0.22), rgba(0, 0, 0, 0));
+  animation: netflix-intro-beam 2.35s ease-in-out forwards;
+}
+
+.netflix-intro__beam--left {
+  left: 34%;
+  transform: rotate(10deg);
+}
+
+.netflix-intro__beam--right {
+  right: 34%;
+  transform: rotate(-10deg);
+  animation-delay: 0.1s;
+}
+
+.netflix-intro__logo-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: scale(0.82);
+  animation: netflix-intro-zoom 2.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.netflix-intro__glow {
+  position: absolute;
+  width: 260px;
+  height: 320px;
+  border-radius: 999px;
+  background: radial-gradient(circle, rgba(229, 9, 20, 0.28), rgba(229, 9, 20, 0.1), transparent 72%);
+  filter: blur(34px);
+  animation: netflix-intro-pulse 1.6s ease-in-out infinite;
+}
+
+.netflix-intro__logo {
+  position: relative;
+  width: 150px;
+  height: 250px;
+  filter: drop-shadow(0 0 12px rgba(229, 9, 20, 0.35)) drop-shadow(0 0 28px rgba(229, 9, 20, 0.16));
+}
+
+.netflix-intro__bar {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 34px;
+  border-radius: 6px;
+  background: linear-gradient(180deg, #ff4d57 0%, #e50914 45%, #7a0209 100%);
+  box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.15);
+}
+
+.netflix-intro__bar--left {
+  left: 0;
+}
+
+.netflix-intro__bar--middle {
+  left: 50%;
+  width: 42px;
+  transform: translateX(-50%) skewX(21deg);
+  transform-origin: center;
+}
+
+.netflix-intro__bar--right {
+  right: 0;
+}
+
+@keyframes netflix-intro-fade {
+  0% {
+    opacity: 0;
+  }
+  18% {
+    opacity: 1;
+  }
+  82% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes netflix-intro-zoom {
+  0% {
+    opacity: 0;
+    transform: scale(0.78);
+  }
+  22% {
+    opacity: 1;
+    transform: scale(0.96);
+  }
+  76% {
+    opacity: 1;
+    transform: scale(1.03);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.1);
+  }
+}
+
+@keyframes netflix-intro-beam {
+  0% {
+    opacity: 0;
+    transform: translateY(-6%) scaleY(0.92);
+  }
+  25% {
+    opacity: 0.4;
+  }
+  70% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(4%) scaleY(1.05);
+  }
+}
+
+@keyframes netflix-intro-pulse {
+  0%,
+  100% {
+    opacity: 0.65;
+    transform: scale(0.96);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.06);
+  }
+}
